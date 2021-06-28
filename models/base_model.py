@@ -19,7 +19,7 @@ class BaseModel:
 
         if kwargs:
             for key, value in kwargs.items():
-                if key == "created_at" or key == "updated_at" and type(self.created_at) is str:
+                if key == "created_at" or key == "updated_at":
                     date_obj = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                     setattr(self, key, date_obj)
                 elif key != "__class__":
@@ -28,6 +28,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            models.storage.new(self)
 
     def __str__(self):
         """String representation"""
@@ -36,6 +37,7 @@ class BaseModel:
     def save(self):
         """updates current datetime"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """returns dictionary"""
