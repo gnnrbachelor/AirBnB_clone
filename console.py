@@ -84,6 +84,13 @@ class HBNBCommand(cmd.Cmd):
             print("[", end="")
             print(", ".join(objs), end="")
             print("]")
+        elif cmds[0] in self.__classes:
+            for key in models.storage.all():
+                if cmds[0] in key:
+                    objs.append(str(models.storage.all()[key]))
+            print("[", end="")
+            print(", ".join(objs), end="")
+            print("]")
         else:
             print("** class doesn't exist **")
 
