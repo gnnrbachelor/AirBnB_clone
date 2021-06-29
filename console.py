@@ -34,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
         if cmd is None:
             print("** class name missing **")
         elif cmd not in self.__classes:
-            print("** Class doesn't exist **")
+            print("** class doesn't exist **")
         else:
             new_inst = eval(cmd)()
             new_inst.save()
