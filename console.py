@@ -11,6 +11,10 @@ class HBNBCommand(cmd.Cmd):
     """HBNBCommand class for prompt"""
     prompt = '(hbnb) '
 
+    def empty_line(self):
+        """Deal with empty line"""
+        pass
+
     def do_EOF(self, arg):
         """Exit the console"""
         return True
