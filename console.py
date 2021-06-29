@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
         cmd = self.parseline(arg)[0]
         argument = self.parseline(arg)[1]
         if cmd is None:
-            print("** Class name missing **")
+            print("** class name missing **")
         elif cmd not in self.__classes:
             print("** class doesn't exist **")
         elif argument == '':
@@ -93,6 +93,45 @@ class HBNBCommand(cmd.Cmd):
             print("]")
         else:
             print("** class doesn't exist **")
+
+    def do_update(self, arg):
+        """Updates instance"""
+        if not arg:
+            print("** class name missing **")
+        else:
+            cmd = arg.split()
+            if (cmd[0] in self.__classes):
+                if (len(cmd) < 2):
+                    print("** instance id missing **")
+                    return
+                key_ch = str(cmd[0] + "." + str(cmd[1]))
+                if key_ch not in storage.all().keys():
+                    print("** no instance found **")
+                    return
+                elif (len(cmd) < 3):
+                    print("** attribute name missing **")
+                    return
+                elif (len(cmd) < 4):
+                    print("** value missing **")
+                    return
+                else:
+                    objs = storage.all()
+                    for key in objs.keys():
+                        if (key_ch == key):
+                            temp = objs[key]
+                            try:
+                                cmd[3] = cmd[3].strip('"')
+                                cmd[3] = int(cmd[3])
+                            except:
+                                pass
+                            setattr(temp, cmd[2], cmd[3])
+                            storage.save()
+                            flag = 1
+                    if (flag == 0):
+                        print("** no instance found **")
+            else:
+                print("** class doesn't exist **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
