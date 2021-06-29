@@ -11,7 +11,7 @@ class HBNBCommand(cmd.Cmd):
     """HBNBCommand class for prompt"""
     prompt = '(hbnb) '
 
-    def empty_line(self):
+    def emptyline(self):
         """Deal with empty line"""
         pass
 
