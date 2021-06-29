@@ -6,9 +6,15 @@ File Storage Module
 
 import json
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 from os import path
 
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "State": State, "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
 
 class FileStorage:
     """File Storage Class """
@@ -35,7 +41,6 @@ class FileStorage:
 
     def reload(self):
         """Handle deserialization of JSON file"""
-        classes = {"BaseModel": BaseModel}
         try:
             with open(self.__file_path, 'r') as f:
                 json_dict = json.load(f)
