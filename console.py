@@ -74,5 +74,18 @@ class HBNBCommand(cmd.Cmd):
                 del models.storage.all()[index]
                 models.storage.save()
 
+    def do_all(self, arg):
+        """String rep of all"""
+        cmds = shlex.split(arg)
+        objs = []
+        if len(cmds) == 0:
+            for value in models.storage.all().values():
+                objs.append(str(value))
+            print("[", end="")
+            print(", ".join(objs), end="")
+            print("]")
+        else:
+            print("** class doesn't exist **")
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
