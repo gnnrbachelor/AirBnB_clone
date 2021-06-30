@@ -9,7 +9,7 @@ import unittest
 from datetime import datetime
 
 
-class TestUser(unittest.TestCase):
+class Test_City(unittest.TestCase):
     """Test City Class"""
 
     def test_city_id(self):

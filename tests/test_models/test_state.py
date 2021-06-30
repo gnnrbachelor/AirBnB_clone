@@ -9,7 +9,7 @@ import unittest
 from datetime import datetime
 
 
-class TestUser(unittest.TestCase):
+class Test_State(unittest.TestCase):
     """Test State Class"""
 
     def test_State_id(self):
