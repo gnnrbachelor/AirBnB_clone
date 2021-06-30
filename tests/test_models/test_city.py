@@ -17,5 +17,5 @@ class TestUser(unittest.TestCase):
         self.test = City()
         self.assertTrue(hasattr(self.test, "state_id"))
         self.assertTrue(hasattr(self.test, "name"))
-        self.assertTrue(hasattr(self.test, "area"))
+        self.assertFalse(hasattr(self.test, "parking"))
 
