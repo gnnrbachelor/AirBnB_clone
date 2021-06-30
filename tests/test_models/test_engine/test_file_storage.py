@@ -3,6 +3,7 @@
 
 
 import os
+from os import path
 import json
 import models
 from models.base_model import BaseModel
@@ -32,8 +33,17 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         """Test all"""
-        engine = FileStorage()
-        collection = engine.all()
+        store = FileStorage()
+        collection = store.all()
         self.assertEqual(type(collection), dict)
-        self.assertIs(collection, engine._FileStorage__objects)
+        self.assertIs(collection, store._FileStorage__objects)
+
+    def test_save(self):
+        """Test save"""
+        bm = BaseModel()
+        models.storage.new(bm)
+        test = ""
+        with open("file.json", "r") as f:
+            test = f.read()
+            self.assertIn("BaseModel." + bm.id, test)
 
