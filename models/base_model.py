@@ -33,7 +33,8 @@ class BaseModel:
 
     def __str__(self):
         """String representation"""
-        return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{:s}] ({:s}) {}".format(self.__class__.__name__,
+                                         self.id, self.__dict__)
 
     def save(self):
         """updates current datetime"""
@@ -43,7 +44,9 @@ class BaseModel:
     def to_dict(self):
         """returns dictionary"""
         new_dictionary = self.__dict__.copy()
-        new_dictionary['created_at'] = datetime.isoformat(new_dictionary['created_at'])
-        new_dictionary['updated_at'] = datetime.isoformat(new_dictionary['updated_at'])
+        new_dictionary['created_at'] = datetime.isoformat(new_dictionary[
+                                       'created_at'])
+        new_dictionary['updated_at'] = datetime.isoformat(new_dictionary[
+                                       'updated_at'])
         new_dictionary["__class__"] = self.__class__.__name__
         return new_dictionary

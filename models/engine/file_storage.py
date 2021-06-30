@@ -14,7 +14,11 @@ from models.amenity import Amenity
 from models.review import Review
 from os import path
 
-classes = {"BaseModel": BaseModel, "State": State, "City": City, "Amenity": Amenity, "Place": Place, "Review": Review}
+
+classes = {"BaseModel": BaseModel, "State": State,
+           "City": City, "Amenity": Amenity,
+           "Place": Place, "Review": Review}
+
 
 class FileStorage:
     """File Storage Class """
