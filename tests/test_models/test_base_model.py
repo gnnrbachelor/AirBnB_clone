@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+
+"""Unittest for BaseModel"""
+
+
+from datetime import datetime
+from models.base_model import BaseModel
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+import os
+import pep8
+import unittest
+import uuid
+import json
+from models.engine.file_storage import FileStorage
+
+
+class TestBaseModel(unittest.TestCase):
+    """Test BaseModel Class"""
+
+    def setup(self):
+        self.b = BaseModel()
+
+    def test_save(self):
+        """Tests save method"""
+        self.b = BaseModel()
+        self.b.save()
+        self.assertTrue(hasattr(self.b, "created_at"))
+
+if __name__ == '__main__':
+    unittest.main()
