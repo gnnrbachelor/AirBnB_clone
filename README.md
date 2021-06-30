@@ -17,7 +17,5 @@ This is the back end console used for manipulating objects in the end database. 
 
 3. Manipulate Objects. For example...
 
-`(hbnb) create BaseModel
-&nbsp;
- 5165cbe1-37f1-4918-934b-38d3401ab871`
+`(hbnb) create BaseModel`
 
