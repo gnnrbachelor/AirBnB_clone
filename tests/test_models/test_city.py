@@ -21,3 +21,8 @@ class TestUser(unittest.TestCase):
         """Test for city name"""
         test_town = City()
         self.assertTrue(hasattr(test_town, "name"))
+
+    def check_inst(self):
+        """Check inst"""
+        test_town = City()
+        self.assertIsInstance(test_town, BaseModel)
