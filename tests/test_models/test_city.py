@@ -12,10 +12,12 @@ from datetime import datetime
 class TestUser(unittest.TestCase):
     """Test City Class"""
 
-    def test_city(self):
-        """Test for city"""
+    def test_city_id(self):
+        """Test for city id"""
         test_town = City()
-        self.assertTrue(hasattr(test_town, "state_id"))
-        self.assertTrue(hasattr(test_town, "name"))
-        self.assertFalse(hasattr(test_town, "parking"))
+        self.assertTrue(hasattr(test_town, "id"))
 
+    def test_city_name(self):
+        """Test for city name"""
+        test_town = City()
+        self.assertTrue(hasattr(test_town, "name"))
