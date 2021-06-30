@@ -48,6 +48,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(error.exception),
                         "save() takes 1 positional argument but 2 were given")
 
+    def test_str(self):
+        """test str rep"""
+        bm = BaseModel()
+        test = "[BaseModel] ({}) {}".format(bm.id, bm.__dict__)
+        self.assertEqual(test, str(bm))
+
 
 if __name__ == '__main__':
     unittest.main()
