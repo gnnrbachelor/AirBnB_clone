@@ -50,12 +50,15 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         """Test reload"""
+        store = FileStorage()
         bm = BaseModel()
-        models.storage.new(bm)
-        models.storage.save()
-        models.storage.reload()
-        collection = FileStorage._FileStorage__objects
-        self.assertIn("BaseModel." + bm.id, collection)
+        store.new(bm)
+        old = store.all()
+        store.save()
+        store.reload()
+        new = store.all()
+        for k, v in old.items():
+            self.assertTrue(k in new)
 
 if __name__ == "__main__":
     unittest.main()
