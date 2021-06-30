@@ -47,3 +47,12 @@ class TestFileStorage(unittest.TestCase):
             test = f.read()
             self.assertIn("BaseModel." + bm.id, test)
 
+    def test_save(self):
+        """Test save"""
+        bm = BaseModel()
+        models.storage.new(bm)
+        models.storage.save()
+        models.storage.reload()
+        collection = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + bm.id, collection)
+
