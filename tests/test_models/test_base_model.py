@@ -16,6 +16,7 @@ import unittest
 import uuid
 import json
 from time import sleep
+from unittest import mock
 from models.engine.file_storage import FileStorage
 
 
@@ -74,6 +75,19 @@ class TestBaseModel(unittest.TestCase):
         dictionary["updated_at"] = dictionary["updated_at"].isoformat()
         check = bm.to_dict()
         self.assertDictEqual(dictionary, check)
+
+    @mock.patch('models.storage')
+    def test_save_storage(self, storage):
+        """Test save with storage"""
+        bm = BaseModel()
+        old_create = bm.created_at
+        old_update = bm.updated_at
+        bm.save()
+        new_create = bm.created_at
+        new_update = bm.updated_at
+        self.assertEqual(old_create, new_create)
+        self.assertNotEqual(old_update, new_update)
+        self.assertTrue(storage.save.called)
 
 
 if __name__ == '__main__':
