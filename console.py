@@ -5,15 +5,21 @@ import cmd
 from datetime import datetime
 import models
 from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 from models import storage
 import shlex
+
 
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand class for prompt"""
 
-    __classes = [
-    'BaseModel'
-    ]
+    __classes = ['BaseModel', 'User', 'State',
+                 'City', 'Amenity', 'Place', 'Review']
     prompt = '(hbnb) '
 
     def emptyline(self):
