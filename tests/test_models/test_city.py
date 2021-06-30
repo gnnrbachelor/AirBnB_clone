@@ -14,8 +14,8 @@ class TestUser(unittest.TestCase):
 
     def test_city(self):
         """Test for city"""
-        self.test = City()
-        self.assertTrue(hasattr(self.test, "state_id"))
-        self.assertTrue(hasattr(self.test, "name"))
-        self.assertFalse(hasattr(self.test, "parking"))
+        test_town = City()
+        self.assertTrue(hasattr(test_town, "state_id"))
+        self.assertTrue(hasattr(test_town, "name"))
+        self.assertFalse(hasattr(test_town, "parking"))
 
