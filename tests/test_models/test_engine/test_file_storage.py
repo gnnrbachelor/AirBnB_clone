@@ -3,6 +3,7 @@
 
 
 import os
+import datetime
 from os import path
 import json
 import models
@@ -14,12 +15,20 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 from models.engine.file_storage import FileStorage
-from datetime import datetime
+import datetime
 import unittest
 
 
 class TestFileStorage(unittest.TestCase):
     """Test File Storage Engine Class"""
+
+    def setUp(self):
+        """Set Up"""
+        self.test_dummy = BaseModel()
+
+    def tearDown(self):
+        """Tear Down"""
+        self.test_dummy = None
 
     def test_new(self):
         """Test new"""
@@ -69,6 +78,14 @@ class TestFileStorage(unittest.TestCase):
         with open("file.json", "r") as f:
             test = f.read()
             self.assertIn("User." + usr.id, test)
+
+    def test_save_time(self):
+        """Test save time"""
+        start = self.test_dummy.updated_at
+        self.test_dummy.save()
+        end = self.test_dummy.updated_at
+        self.assertNotEqual(start, end)
+        self.assertEqual(type(start), datetime.datetime)
 
 if __name__ == "__main__":
     unittest.main()
