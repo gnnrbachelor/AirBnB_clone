@@ -15,6 +15,7 @@ import pep8
 import unittest
 import uuid
 import json
+from time import sleep
 from models.engine.file_storage import FileStorage
 
 
@@ -24,11 +25,20 @@ class TestBaseModel(unittest.TestCase):
     def setup(self):
         self.b = BaseModel()
 
-    def test_save(self):
-        """Tests save method"""
+    def test_id(self):
+        """Tests for id"""
         self.b = BaseModel()
         self.b.save()
         self.assertTrue(hasattr(self.b, "created_at"))
+
+    def test_save(self):
+        """Tests Save"""
+        bm = BaseModel()
+        first = bm.updated_at
+        sleep(0.05)
+        second = bm.updated_at
+        bm.save()
+        self.assertEqual(first, second)
 
 if __name__ == '__main__':
     unittest.main()
