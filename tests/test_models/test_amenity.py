@@ -21,6 +21,7 @@ class Test_Amenity(unittest.TestCase):
         """Test for city name"""
         test_amenity = Amenity()
         self.assertTrue(hasattr(test_amenity, "name"))
+        self.assertEqual(test_amenity.name, "")
 
     def check_inst(self):
         """Check inst"""
