@@ -47,7 +47,7 @@ class TestFileStorage(unittest.TestCase):
             test = f.read()
             self.assertIn("BaseModel." + bm.id, test)
 
-    def test_save(self):
+    def test_reload(self):
         """Test save"""
         bm = BaseModel()
         models.storage.new(bm)
