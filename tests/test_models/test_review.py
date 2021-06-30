@@ -32,3 +32,11 @@ class Test_Review(unittest.TestCase):
         """Check inst"""
         test_review = Review()
         self.assertIsInstance(test_review, BaseModel)
+
+    def test_Review_text(self):
+        """Test for city name"""
+        test_review = Review()
+        self.assertTrue(hasattr(test_review, "text"))
+        self.assertEqual(test_review.text, "")
+
+
