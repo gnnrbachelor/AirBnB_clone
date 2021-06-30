@@ -20,6 +20,16 @@ import unittest
 class TestFileStorage(unittest.TestCase):
     """Test File Storage Engine Class"""
 
+    def test_new(self):
+        """Test new"""
+        engine = FileStorage()
+        collection = engine.all()
+        state = State()
+        state.id = "123123"
+        engine.new(state)
+        k = state.__class__.__name__ + "." + str(state.id)
+        self.assertIsNotNone(collection[k])
+
     def test_all(self):
         """Test all"""
         engine = FileStorage()
