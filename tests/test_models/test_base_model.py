@@ -54,6 +54,11 @@ class TestBaseModel(unittest.TestCase):
         test = "[BaseModel] ({}) {}".format(bm.id, bm.__dict__)
         self.assertEqual(test, str(bm))
 
+    def test_save_attr(self):
+        """Test save attr"""
+        bm = BaseModel()
+        self.assertTrue(hasattr(BaseModel, "save"))
+
 
 if __name__ == '__main__':
     unittest.main()
