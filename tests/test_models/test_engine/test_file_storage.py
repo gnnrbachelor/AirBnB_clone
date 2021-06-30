@@ -60,5 +60,14 @@ class TestFileStorage(unittest.TestCase):
         for k, v in old.items():
             self.assertTrue(k in new)
 
+    def test_save_alt(self):
+        """Test again for save"""
+        usr = User()
+        models.storage.new(usr)
+        test = ""
+        with open("file.json", "r") as f:
+            test = f.read()
+            self.assertIn("User." + usr.id, test)
+
 if __name__ == "__main__":
     unittest.main()
