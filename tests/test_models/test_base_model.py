@@ -59,6 +59,16 @@ class TestBaseModel(unittest.TestCase):
         bm = BaseModel()
         self.assertTrue(hasattr(BaseModel, "save"))
 
+    def test_to_dict(self):
+        """Test to_dict"""
+        bm = BaseModel()
+        dictionary = bm.__dict__.copy()
+        dictionary["__class__"] = bm.__class__.__name__
+        dictionary["created_at"] = dictionary["created_at"].isoformat()
+        dictionary["updated_at"] = dictionary["updated_at"].isoformat()
+        check = bm.to_dict()
+        self.assertDictEqual(dictionary, check)
+
 
 if __name__ == '__main__':
     unittest.main()
