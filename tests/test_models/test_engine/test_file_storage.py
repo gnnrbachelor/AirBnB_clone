@@ -64,6 +64,7 @@ class TestFileStorage(unittest.TestCase):
         """Test again for save"""
         usr = User()
         models.storage.new(usr)
+        models.storage.save()
         test = ""
         with open("file.json", "r") as f:
             test = f.read()
