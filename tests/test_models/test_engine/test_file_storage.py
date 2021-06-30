@@ -57,6 +57,16 @@ class TestFileStorage(unittest.TestCase):
             test = f.read()
             self.assertIn("BaseModel." + bm.id, test)
 
+    def test_save_it(self):
+        """Test save"""
+        bm = BaseModel()
+        bm.save()
+        models.storage.new(bm)
+        test = ""
+        with open("file.json", "r") as f:
+            test = f.read()
+            self.assertIn("BaseModel." + bm.id, test)
+
     def test_reload(self):
         """Test reload"""
         store = FileStorage()
@@ -68,6 +78,18 @@ class TestFileStorage(unittest.TestCase):
         new = store.all()
         for k, v in old.items():
             self.assertTrue(k in new)
+
+    def test_reload2(self):
+        """Test reload"""
+        store = FileStorage()
+        bm = BaseModel()
+        store.new(bm)
+        store.save()
+        store.reload()
+        self.assertTrue(store.all()["BaseModel.{}".format(bm.id)])
+        self.assertTrue(store._FileStorage__objects["BaseModel.{}".format(bm.id)])
+
+
 
     def test_save_alt(self):
         """Test again for save"""
