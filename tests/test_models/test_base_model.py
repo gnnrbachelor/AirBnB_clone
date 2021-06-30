@@ -31,7 +31,7 @@ class TestBaseModel(unittest.TestCase):
         self.b.save()
         self.assertTrue(hasattr(self.b, "created_at"))
 
-    def test_save(self):
+    def test_updated_at(self):
         """Tests Save"""
         bm = BaseModel()
         first = bm.updated_at
@@ -39,6 +39,15 @@ class TestBaseModel(unittest.TestCase):
         second = bm.updated_at
         bm.save()
         self.assertEqual(first, second)
+
+    def test_save(self):
+        """Tests Save"""
+        with self.assertRaises(TypeError) as error:
+            bm = BaseModel()
+            bm.save("test")
+        self.assertEqual(str(error.exception),
+                        "save() takes 1 positional argument but 2 were given")
+
 
 if __name__ == '__main__':
     unittest.main()
