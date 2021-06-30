@@ -17,7 +17,13 @@ class Test_Review(unittest.TestCase):
         test_review = Review()
         self.assertTrue(hasattr(test_review, "user_id"))
 
-    def test_Review_name(self):
+    def test_Review_place_id(self):
+        """Test for Review id"""
+        test_review = Review()
+        self.assertTrue(hasattr(test_review, "place_id"))
+
+
+    def test_Review_text(self):
         """Test for Review text"""
         test_review = Review()
         self.assertTrue(hasattr(test_review, "text"))
