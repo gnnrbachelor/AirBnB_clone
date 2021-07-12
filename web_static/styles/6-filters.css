@@ -67,8 +67,18 @@
     margin-bottom: 20px;
 }
 
+.popover h2 {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
 .locations:hover > .popover {
     display: block;
+}
+
+.locations:hover > .popover > li {
+    margin-left: 30px;
+    margin-bottom: 10px;
 }
 
 .amenities:hover > .popover {
