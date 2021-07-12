@@ -31,6 +31,9 @@
     justify-content: center;
 }
 
+.places h2 {
+}
+
 .list_head {
     display: grid;
     grid-template-columns: 5fr 1fr;
@@ -39,7 +42,6 @@
 .info_section {
     display: flex;
     justify-content: space-around;
-    height: 80px;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
 }
@@ -91,4 +93,14 @@
 .description {
     margin-top: 0;
     padding-top: 0;
+}
+
+.place_amenities li {
+    list-style-type: none;
+    display: flex;
+}
+.icon_pets {
+    height: 50px;
+    width: 50px;
+    background: url("../images/icon_pets.png") no-repeat center;
 }

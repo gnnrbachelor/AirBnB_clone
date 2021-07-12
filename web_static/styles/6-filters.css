@@ -31,20 +31,20 @@
     border-right: 1px solid #DDDDDD;
 }
 
-.locations, .amenities {
+.locations, .f_amenities {
     height: 100%;
     width: 25%;
     padding-left: 50px;
 }
 
 .locations > h3, 
-.amenities > h3 {
+.f_amenities > h3 {
     font-weight: 600;
     margin:  12px 0px 5px 0px;
 }
 
 .locations > h4, 
-.amenities > h4 {
+.f_amenities > h4 {
     font-weight: 400;
     font-size: 14px;
     margin: 0;
@@ -81,11 +81,11 @@
     margin-bottom: 10px;
 }
 
-.amenities:hover > .popover {
+.f_amenities:hover > .popover {
     display: block;
 }
 
-.amenities > .popover > li {
+.f_amenities > .popover > li {
     margin-left: 50px;
     margin-bottom: 10px;
 }
