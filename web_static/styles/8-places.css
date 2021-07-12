@@ -30,6 +30,11 @@
     grid-template-columns: 5fr 1fr;
 }
 
+.info_section {
+    display: flex;
+    justify-content: space-around;
+}
+
 .price_by_night {
     color: #FF5A5F;
     border 4px solid #FF5A5F;
@@ -38,3 +43,22 @@
     font-size: 30px;
     border-radius: 50%;
 }
+
+.guests_icon {
+    height: 50px;
+    width: 50px;
+    background: url("../images/icon_group.png") no-repeat center;
+}
+
+.bath_icon {
+    height: 50px;
+    width: 50px;
+    background: url("../images/icon_bath.png");
+}
+
+.bed_icon {
+    height: 50px;
+    width: 50px;
+    background: url("../images/icon_bed.png");
+}
+.
