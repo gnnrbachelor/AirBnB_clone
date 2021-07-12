@@ -25,14 +25,12 @@
     border-radius: 4px;
 }
 
-.places > article h2 {
+.list_head h2 {
     font-size: 30px;
     display: flex;
     justify-content: center;
 }
 
-.places h2 {
-}
 
 .list_head {
     display: grid;
@@ -44,7 +42,6 @@
     justify-content: space-around;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
-    padding-top: 10px;
 }
 
 .price_by_night {
@@ -54,13 +51,6 @@
     height: 60px;
     font-size: 30px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.information {
-    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
